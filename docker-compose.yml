@@ -1,0 +1,19 @@
+version: "3"
+services:
+  myapp:
+    image: flask/mehdi
+    depends_on:
+      - redis
+    ports:
+      - 80:80
+    networks:
+      - mynetwork
+    environment:
+      - NOM= World
+  redis:
+    image: redis
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
